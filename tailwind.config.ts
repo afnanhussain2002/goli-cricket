@@ -13,6 +13,9 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      daisyui: {
+        themes: ["light", "dark", "aqua"],
+      },
     },
   },
   plugins: [
