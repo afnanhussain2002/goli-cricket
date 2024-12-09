@@ -1,8 +1,12 @@
+"use client"
+import { useUser } from '@clerk/nextjs'
 import Link from 'next/link'
 import React from 'react'
 
 
 const Navbar = () => {
+
+  const {user} = useUser()
 
   const menu = (
     <>
@@ -49,7 +53,8 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end">
-    <a className="btn">Button</a>
+    {user ? <h3>{user.lastName}</h3> :   <Link href="/sign-in" className="btn">Sign In</Link>}
+  
   </div>
 </div>
   )
