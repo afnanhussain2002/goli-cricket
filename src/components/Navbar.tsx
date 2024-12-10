@@ -1,5 +1,5 @@
 "use client"
-import { useUser } from '@clerk/nextjs'
+import { SignedOut, SignOutButton, useUser } from '@clerk/nextjs'
 import Link from 'next/link'
 import React from 'react'
 
@@ -53,7 +53,11 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end">
-    {user ? <h3>{user.lastName}</h3> :   <Link href="/sign-in" className="btn">Sign In</Link>}
+    {user ? 
+    <>
+    <h3>{user.lastName}</h3>
+    <SignOutButton/>
+    </> :   <Link href="/sign-in" className="btn">Sign In</Link>}
   
   </div>
 </div>
