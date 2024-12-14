@@ -1,4 +1,6 @@
-const userSchema ={
+import { Schema } from "mongoose";
+
+const userSchema = new Schema({
     username:{
         type:String,
         required:true,
@@ -19,4 +21,4 @@ const userSchema ={
         required:true,
         trim:true
     },
-}
+}, {timestamps:true})
