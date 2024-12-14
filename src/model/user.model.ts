@@ -1,6 +1,12 @@
+import exp from "constants";
 import mongoose, { Schema } from "mongoose";
+export interface User{
+    username:string
+    email:string
+    fullName:string
+}
 
-const userSchema = new Schema({
+const UserSchema = new Schema({
     username:{
         type:String,
         required:true,
@@ -23,4 +29,6 @@ const userSchema = new Schema({
     },
 }, {timestamps:true})
 
-export const UserData = mongoose.model('User', userSchema);
+const UserModel = (mongoose.models.User as mongoose.Model<User>) || mongoose.model<User>("User", UserSchema)
+
+export default UserModel;
