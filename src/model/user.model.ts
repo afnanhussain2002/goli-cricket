@@ -2,7 +2,6 @@ import mongoose, { Schema } from "mongoose";
 export interface User{
     username:string
     email:string
-    fullName:string
 }
 
 const UserSchema = new Schema({
@@ -21,11 +20,7 @@ const UserSchema = new Schema({
         lowercase:true,
         trim:true,
     },
-    fullName:{
-        type:String,
-        required:true,
-        trim:true
-    },
+   
 }, {timestamps:true})
 
 const UserModel = (mongoose.models.User as mongoose.Model<User>) || mongoose.model<User>("User", UserSchema)
