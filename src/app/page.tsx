@@ -1,6 +1,7 @@
 import React from 'react'
 
 function Home() {
+
   return (
     <div className="relative min-h-screen">
       <div className="absolute inset-0 bg-black opacity-50"></div> {/* Overlay */}
