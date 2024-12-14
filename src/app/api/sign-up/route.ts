@@ -10,7 +10,13 @@ export async function POST(request: Request) {
      if (username || email) {
         return Response.json({error: "Username or email already exists"}, {status: 400})
      }
-     const user = await UserModel.create({username, email})
+     const newUser = new UserModel({username, email})
+
+     await newUser.save()
+
+     return Response.json({message: "User registered successfully"}, {status: 201})
+
+
 
    } catch (error) {
     console.log("Error registering user", error);
