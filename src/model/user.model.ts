@@ -1,4 +1,3 @@
-import exp from "constants";
 import mongoose, { Schema } from "mongoose";
 export interface User{
     username:string
