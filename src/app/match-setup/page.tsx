@@ -1,8 +1,11 @@
+import MatchSetupForm from '@/components/MatchSetForm'
 import React from 'react'
 
 function MatchSetup() {
   return (
-    <div>MatchSetup</div>
+    <div>
+        <MatchSetupForm/>
+    </div>
   )
 }
 
