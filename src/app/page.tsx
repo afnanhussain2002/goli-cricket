@@ -1,6 +1,18 @@
 import React from 'react'
 
+
 function Home() {
+
+  /* const {user} = useUser()
+
+  console.log(user);
+
+  try {
+    const response = axios.post('/api/sign-up', {username:user?.username,email:user?.emailAddresses[0].emailAddress})
+    console.log(response);
+  } catch (error) {
+   console.log(error); 
+  } */
 
   return (
     <div className="relative min-h-screen">

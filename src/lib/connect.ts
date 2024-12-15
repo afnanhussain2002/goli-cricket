@@ -1,9 +1,7 @@
 "use client"
-import { useEffect } from "react"
-import connectDB from "./db";
+import { useUser } from "@clerk/nextjs";
 
-export const ConnectDB = () =>{
-    useEffect(() => {
-        connectDB();
-      }, []);
+export const LoggedUser = () =>{
+    const {user} = useUser()
+    return user
 }

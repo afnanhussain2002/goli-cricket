@@ -1,3 +1,4 @@
+"use server"
 import dbConnect from "@/lib/db"
 import UserModel from "@/model/user.model"
 
@@ -7,12 +8,15 @@ export async function POST(request: Request) {
    try {
      const {username, email} = await request.json()
 
-     if (username || email) {
-        return Response.json({error: "Username or email already exists"}, {status: 400})
-     }
-     const newUser = new UserModel({username, email})
+     console.log("info=====",username, email);
 
-     await newUser.save()
+     if (!username || !email) {
+        return Response.json({error: "Missing username or email"}, {status: 400})
+     }
+     const newUser = await UserModel.create({username, email})
+
+     console.log("newUser=====",newUser);
+
 
      return Response.json({message: "User registered successfully"}, {status: 201})
 
