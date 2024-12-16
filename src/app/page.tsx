@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 
 
@@ -24,7 +25,9 @@ function Home() {
             <p className="py-6">
             Track Every Run, Count Every Over, Own Every Match!
             </p>
+            <Link href={'/match-setup'}>
             <button className="btn btn-primary">Get Started</button>
+            </Link>
           </div>
         </div>
       </div>
