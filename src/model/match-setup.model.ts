@@ -1,4 +1,4 @@
-import { Schema } from "mongoose"
+import mongoose, { Schema } from "mongoose"
 
 export interface MatchSetup{
     team1:string,
@@ -32,3 +32,7 @@ const MatchSetupSchema = new Schema<MatchSetup>({
         type:String,
     }
 })
+
+const MatchSetupModel = mongoose.model("MatchSetup", MatchSetupSchema)
+
+export default MatchSetupModel;
