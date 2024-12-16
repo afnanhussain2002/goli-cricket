@@ -6,13 +6,17 @@ export async function POST(request: Request) {
     await dbConnect()
 
     try {
-        const {team1,team2,over,dateTime,location,ballType} = await request.json()
+        const {team1,team2,over,dateTime,location,ballType} = await request.json();
+        console.log("data----",team1,team2,over,dateTime,location,ballType);
 
         if(!team1 || !team2 || !over ){
             return Response.json({error: "Missing team1, team2 or over"}, {status: 400})
         }
 
-        const newMatch = await MatchSetupModel.create({team1,team2,over,dateTime,location,ballType})
+
+        const newMatch = new MatchSetupModel({team1,team2,over,dateTime,location,ballType})
+
+        await newMatch.save()
 
         return Response.json({message: "Match created successfully"}, {status: 201})
     } catch (error) {

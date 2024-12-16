@@ -31,8 +31,8 @@ const MatchSetupSchema = new Schema<MatchSetup>({
     ballType:{
         type:String,
     }
-})
+}, {timestamps:true})
 
-const MatchSetupModel = mongoose.model("MatchSetup", MatchSetupSchema)
+const MatchSetupModel = mongoose.models.MatchSetup || mongoose.model("MatchSetup", MatchSetupSchema)
 
 export default MatchSetupModel;
