@@ -1,7 +1,10 @@
 "use client"
 import React, { useState } from "react";
+import toast from "react-hot-toast";
 
 const MatchSetupForm = () => {
+
+  const today = new Date();
   
   const handleSubmit = (e: React.FormEvent) =>{
     e.preventDefault()
@@ -12,6 +15,17 @@ const MatchSetupForm = () => {
    const dateTime = form.dateTime.value;
    const location = form.location.value;
    const ballType = form.ballType.value;
+
+   if (dateTime < today.toISOString()) {
+    toast.error("Please select a future date and time.");
+    return;
+   }
+
+   const newMatch = {team1Name,team2Name,overs,dateTime,location,ballType};
+
+   
+
+
 
    console.log(team1Name,team2Name,overs,dateTime,location,ballType);
 
