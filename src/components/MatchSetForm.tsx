@@ -1,4 +1,5 @@
 "use client"
+import axios from "axios";
 import React, { useState } from "react";
 import toast from "react-hot-toast";
 
@@ -6,7 +7,7 @@ const MatchSetupForm = () => {
 
   const today = new Date();
   
-  const handleSubmit = (e: React.FormEvent) =>{
+  const handleSubmit = async(e: React.FormEvent) =>{
     e.preventDefault()
    const form = e.target as HTMLFormElement;
    const team1Name = form.team1.value;
@@ -23,7 +24,17 @@ const MatchSetupForm = () => {
 
    const newMatch = {team1Name,team2Name,overs,dateTime,location,ballType};
 
-   
+   try {
+    const response = await axios.post('/api/match-setup',newMatch);
+
+    if (response.status === 201) {
+      toast.success("Match created successfully");
+      form.reset();
+    }
+   } catch (error) {
+    console.log(error);
+    toast.error("Error creating match");
+   }
 
 
 
