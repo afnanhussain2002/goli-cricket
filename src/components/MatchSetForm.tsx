@@ -1,46 +1,52 @@
-"use client"
+"use client";
 import axios from "axios";
 import React, { useState } from "react";
 import toast from "react-hot-toast";
 
 const MatchSetupForm = () => {
-
   const today = new Date();
-  
-  const handleSubmit = async(e: React.FormEvent) =>{
-    e.preventDefault()
-   const form = e.target as HTMLFormElement;
-   const team1Name = form.team1.value;
-   const team2Name = form.team2.value;
-   const overs = form.over.value;
-   const dateTime = form.dateTime.value;
-   const location = form.location.value;
-   const ballType = form.ballType.value;
 
-   if (dateTime < today.toISOString()) {
-    toast.error("Please select a future date and time.");
-    return;
-   }
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const form = e.target as HTMLFormElement;
+    const team1 = form.team1.value;
+    const team2 = form.team2.value;
+    const over = form.over.value;
+    const dateTime = form.dateTime.value;
+    const location = form.location.value;
+    const ballType = form.ballType.value;
 
-   const newMatch = {team1Name,team2Name,overs,dateTime,location,ballType};
-
-   try {
-    const response = await axios.post('/api/match-setup',newMatch);
-
-    if (response.status === 201) {
-      toast.success("Match created successfully");
-      form.reset();
+    if (dateTime < today.toISOString()) {
+      toast.error("Please select a future date and time.");
+      return;
     }
-   } catch (error) {
-    console.log(error);
-    toast.error("Error creating match");
-   }
 
+    const newMatch = {
+      team1,
+      team2,
+      over,
+      dateTime,
+      location,
+      ballType,
+    };
 
+    try {
+      const response = await axios
+        .post("/api/match-setup", newMatch)
+        .then((response) => response.data)
+        .catch((error) => console.log(error));
 
-   console.log(team1Name,team2Name,overs,dateTime,location,ballType);
+      if (response.status === 201) {
+        toast.success("Match created successfully");
+        form.reset();
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error("Error creating match");
+    }
 
-  }
+    console.log(team1, team2, over, dateTime, location, ballType);
+  };
 
   return (
     <div className="max-w-lg mx-auto mt-10 p-6 bg-white shadow-md rounded-lg">
@@ -48,7 +54,10 @@ const MatchSetupForm = () => {
       <form onSubmit={handleSubmit} className="space-y-4">
         {/* Team 1 Name */}
         <div>
-          <label className="block text-sm font-medium text-gray-700" htmlFor="team1">
+          <label
+            className="block text-sm font-medium text-gray-700"
+            htmlFor="team1"
+          >
             Team 1 Name
           </label>
           <input
@@ -63,7 +72,10 @@ const MatchSetupForm = () => {
 
         {/* Team 2 Name */}
         <div>
-          <label className="block text-sm font-medium text-gray-700" htmlFor="team2">
+          <label
+            className="block text-sm font-medium text-gray-700"
+            htmlFor="team2"
+          >
             Team 2 Name
           </label>
           <input
@@ -78,7 +90,10 @@ const MatchSetupForm = () => {
 
         {/* Overs */}
         <div>
-          <label className="block text-sm font-medium text-gray-700" htmlFor="over">
+          <label
+            className="block text-sm font-medium text-gray-700"
+            htmlFor="over"
+          >
             Overs
           </label>
           <input
@@ -93,7 +108,10 @@ const MatchSetupForm = () => {
 
         {/* Date and Time */}
         <div>
-          <label className="block text-sm font-medium text-gray-700" htmlFor="dateTime">
+          <label
+            className="block text-sm font-medium text-gray-700"
+            htmlFor="dateTime"
+          >
             Date and Time
           </label>
           <input
@@ -107,7 +125,10 @@ const MatchSetupForm = () => {
 
         {/* Location */}
         <div>
-          <label className="block text-sm font-medium text-gray-700" htmlFor="location">
+          <label
+            className="block text-sm font-medium text-gray-700"
+            htmlFor="location"
+          >
             Location
           </label>
           <input
@@ -122,7 +143,9 @@ const MatchSetupForm = () => {
 
         {/* Ball Type */}
         <div>
-          <label className="block text-sm font-medium text-gray-700">Ball Type</label>
+          <label className="block text-sm font-medium text-gray-700">
+            Ball Type
+          </label>
           <div className="mt-1 flex items-center space-x-4">
             <label className="flex items-center">
               <input
