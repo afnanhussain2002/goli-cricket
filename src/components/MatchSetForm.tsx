@@ -3,8 +3,18 @@ import React, { useState } from "react";
 
 const MatchSetupForm = () => {
   
-  const handleSubmit = () =>{
-    console.log('clicked');
+  const handleSubmit = (e: React.FormEvent) =>{
+    e.preventDefault()
+   const form = e.target as HTMLFormElement;
+   const team1Name = form.team1.value;
+   const team2Name = form.team2.value;
+   const overs = form.over.value;
+   const dateTime = form.dateTime.value;
+   const location = form.location.value;
+   const ballType = form.ballType.value;
+
+   console.log(team1Name,team2Name,overs,dateTime,location,ballType);
+
   }
 
   return (
