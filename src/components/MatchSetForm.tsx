@@ -2,25 +2,10 @@
 import React, { useState } from "react";
 
 const MatchSetupForm = () => {
-  const [formData, setFormData] = useState({
-    team1: "",
-    team2: "",
-    over: "",
-    dateTime: "",
-    location: "",
-    ballType: "tennis",
-  });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(formData);
-    // Add your form submission logic here
-  };
+  
+  const handleSubmit = () =>{
+    console.log('clicked');
+  }
 
   return (
     <div className="max-w-lg mx-auto mt-10 p-6 bg-white shadow-md rounded-lg">
@@ -35,8 +20,6 @@ const MatchSetupForm = () => {
             type="text"
             id="team1"
             name="team1"
-            value={formData.team1}
-            onChange={handleChange}
             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
             placeholder="Enter Team 1 Name"
             required
@@ -52,8 +35,6 @@ const MatchSetupForm = () => {
             type="text"
             id="team2"
             name="team2"
-            value={formData.team2}
-            onChange={handleChange}
             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
             placeholder="Enter Team 2 Name"
             required
@@ -69,8 +50,6 @@ const MatchSetupForm = () => {
             type="number"
             id="over"
             name="over"
-            value={formData.over}
-            onChange={handleChange}
             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
             placeholder="Enter Number of Overs"
             required
@@ -86,8 +65,6 @@ const MatchSetupForm = () => {
             type="datetime-local"
             id="dateTime"
             name="dateTime"
-            value={formData.dateTime}
-            onChange={handleChange}
             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
             required
           />
@@ -102,8 +79,6 @@ const MatchSetupForm = () => {
             type="text"
             id="location"
             name="location"
-            value={formData.location}
-            onChange={handleChange}
             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
             placeholder="Enter Match Location"
             required
@@ -119,8 +94,6 @@ const MatchSetupForm = () => {
                 type="radio"
                 name="ballType"
                 value="tennis"
-                checked={formData.ballType === "tennis"}
-                onChange={handleChange}
                 className="h-4 w-4 text-blue-600 border-gray-300 focus:ring-blue-500"
               />
               <span className="ml-2 text-sm text-gray-700">Tennis</span>
@@ -131,8 +104,6 @@ const MatchSetupForm = () => {
                 type="radio"
                 name="ballType"
                 value="leather"
-                checked={formData.ballType === "leather"}
-                onChange={handleChange}
                 className="h-4 w-4 text-blue-600 border-gray-300 focus:ring-blue-500"
               />
               <span className="ml-2 text-sm text-gray-700">Leather</span>
