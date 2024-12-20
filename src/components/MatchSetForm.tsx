@@ -1,10 +1,13 @@
 "use client";
+import { useUser } from "@clerk/nextjs";
 import axios from "axios";
 import React from "react";
 import toast from "react-hot-toast";
 
 const MatchSetupForm = () => {
+  const {user} = useUser()
   const today = new Date();
+
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -15,6 +18,7 @@ const MatchSetupForm = () => {
     const dateTime = form.dateTime.value;
     const location = form.location.value;
     const ballType = form.ballType.value;
+    const matchOwner = user?.emailAddresses[0].emailAddress
 
     if (dateTime < today.toISOString()) {
       toast.error("Please select a future date and time.");
@@ -28,6 +32,7 @@ const MatchSetupForm = () => {
       dateTime,
       location,
       ballType,
+      matchOwner
     };
 
     try {
