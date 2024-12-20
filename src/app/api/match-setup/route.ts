@@ -6,7 +6,7 @@ export async function POST(request: Request) {
     await dbConnect()
 
     try {
-        const {team1,team2,over,dateTime,location,ballType} = await request.json();
+        const {team1,team2,over,dateTime,location,ballType, matchOwner} = await request.json();
         console.log("data----",team1,team2,over,dateTime,location,ballType);
 
         if(!team1 || !team2 || !over ){
@@ -14,7 +14,7 @@ export async function POST(request: Request) {
         }
 
 
-        const newMatch = new MatchSetupModel({team1,team2,over,dateTime,location,ballType})
+        const newMatch = new MatchSetupModel({team1,team2,over,dateTime,location,ballType, matchOwner})
 
         await newMatch.save()
 

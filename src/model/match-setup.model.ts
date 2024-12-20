@@ -6,7 +6,8 @@ export interface MatchSetup{
     over:number,
     dateTime:Date,
     location:string,
-    ballType:string
+    ballType:string,
+    matchOwner:string
 }
 
 const MatchSetupSchema = new Schema<MatchSetup>({
@@ -29,6 +30,9 @@ const MatchSetupSchema = new Schema<MatchSetup>({
         type:String,
     },
     ballType:{
+        type:String,
+    },
+    matchOwner:{
         type:String,
     }
 }, {timestamps:true})
