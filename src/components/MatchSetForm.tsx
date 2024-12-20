@@ -1,6 +1,6 @@
 "use client";
 import axios from "axios";
-import React, { useState } from "react";
+import React from "react";
 import toast from "react-hot-toast";
 
 const MatchSetupForm = () => {
@@ -36,10 +36,7 @@ const MatchSetupForm = () => {
         .then((response) => response.data)
         .catch((error) => console.log(error));
 
-      if (response.status === 201) {
-        toast.success("Match created successfully");
-        form.reset();
-      }
+      console.log(response);
     } catch (error) {
       console.log(error);
       toast.error("Error creating match");
@@ -49,22 +46,19 @@ const MatchSetupForm = () => {
   };
 
   return (
-    <div className="max-w-lg mx-auto mt-10 p-6 bg-white shadow-md rounded-lg">
-      <h1 className="text-2xl font-bold text-center mb-6">Match Setup</h1>
-      <form onSubmit={handleSubmit} className="space-y-4">
+    <div className="max-w-lg mx-auto mt-10 p-8 bg-white shadow-lg rounded-lg">
+      <h1 className="text-3xl font-bold text-center mb-8 text-gray-800">Match Setup</h1>
+      <form onSubmit={handleSubmit} className="space-y-6">
         {/* Team 1 Name */}
         <div>
-          <label
-            className="block text-sm font-medium text-gray-700"
-            htmlFor="team1"
-          >
+          <label className="block text-sm font-medium text-gray-600" htmlFor="team1">
             Team 1 Name
           </label>
           <input
             type="text"
             id="team1"
             name="team1"
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+            className="mt-2 block w-full rounded-lg bg-gray-100 border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
             placeholder="Enter Team 1 Name"
             required
           />
@@ -72,17 +66,14 @@ const MatchSetupForm = () => {
 
         {/* Team 2 Name */}
         <div>
-          <label
-            className="block text-sm font-medium text-gray-700"
-            htmlFor="team2"
-          >
+          <label className="block text-sm font-medium text-gray-600" htmlFor="team2">
             Team 2 Name
           </label>
           <input
             type="text"
             id="team2"
             name="team2"
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+            className="mt-2 block w-full rounded-lg bg-gray-100 border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
             placeholder="Enter Team 2 Name"
             required
           />
@@ -90,17 +81,14 @@ const MatchSetupForm = () => {
 
         {/* Overs */}
         <div>
-          <label
-            className="block text-sm font-medium text-gray-700"
-            htmlFor="over"
-          >
+          <label className="block text-sm font-medium text-gray-600" htmlFor="over">
             Overs
           </label>
           <input
             type="number"
             id="over"
             name="over"
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+            className="mt-2 block w-full rounded-lg bg-gray-100 border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
             placeholder="Enter Number of Overs"
             required
           />
@@ -108,34 +96,28 @@ const MatchSetupForm = () => {
 
         {/* Date and Time */}
         <div>
-          <label
-            className="block text-sm font-medium text-gray-700"
-            htmlFor="dateTime"
-          >
+          <label className="block text-sm font-medium text-gray-600" htmlFor="dateTime">
             Date and Time
           </label>
           <input
             type="datetime-local"
             id="dateTime"
             name="dateTime"
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+            className="mt-2 block w-full rounded-lg bg-gray-100 border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
             required
           />
         </div>
 
         {/* Location */}
         <div>
-          <label
-            className="block text-sm font-medium text-gray-700"
-            htmlFor="location"
-          >
+          <label className="block text-sm font-medium text-gray-600" htmlFor="location">
             Location
           </label>
           <input
             type="text"
             id="location"
             name="location"
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+            className="mt-2 block w-full rounded-lg bg-gray-100 border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
             placeholder="Enter Match Location"
             required
           />
@@ -143,18 +125,16 @@ const MatchSetupForm = () => {
 
         {/* Ball Type */}
         <div>
-          <label className="block text-sm font-medium text-gray-700">
-            Ball Type
-          </label>
-          <div className="mt-1 flex items-center space-x-4">
+          <label className="block text-sm font-medium text-gray-600">Ball Type</label>
+          <div className="mt-2 flex items-center space-x-6">
             <label className="flex items-center">
               <input
                 type="radio"
                 name="ballType"
                 value="tennis"
-                className="h-4 w-4 text-blue-600 border-gray-300 focus:ring-blue-500"
+                className="h-4 w-4 text-indigo-600 border-gray-300 focus:ring-indigo-500"
               />
-              <span className="ml-2 text-sm text-gray-700">Tennis</span>
+              <span className="ml-2 text-sm text-gray-600">Tennis</span>
             </label>
 
             <label className="flex items-center">
@@ -162,9 +142,9 @@ const MatchSetupForm = () => {
                 type="radio"
                 name="ballType"
                 value="leather"
-                className="h-4 w-4 text-blue-600 border-gray-300 focus:ring-blue-500"
+                className="h-4 w-4 text-indigo-600 border-gray-300 focus:ring-indigo-500"
               />
-              <span className="ml-2 text-sm text-gray-700">Leather</span>
+              <span className="ml-2 text-sm text-gray-600">Leather</span>
             </label>
           </div>
         </div>
@@ -173,7 +153,7 @@ const MatchSetupForm = () => {
         <div>
           <button
             type="submit"
-            className="w-full bg-blue-600 text-white py-2 px-4 rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+            className="w-full bg-indigo-600 text-white py-3 px-4 rounded-lg shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
           >
             Create Match
           </button>
