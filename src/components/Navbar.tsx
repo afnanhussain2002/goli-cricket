@@ -17,7 +17,7 @@ const Navbar = () => {
       <Link href="/">Live Score</Link>
     </li>
     <li>
-      <Link href="/">All Matches</Link>
+      <Link href="/all-matches">All Matches</Link>
     </li>
     <li>
       <Link href="/">Best Performer</Link>
