@@ -1,8 +1,11 @@
+import AllMatchPage from '@/components/AllMatchPage'
 import React from 'react'
 
 function AllMatches() {
   return (
-    <div>AllMatches</div>
+    <div>
+        <AllMatchPage/>
+    </div>
   )
 }
 
