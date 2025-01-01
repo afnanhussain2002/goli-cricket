@@ -1,11 +1,24 @@
+"use client";
 import React from 'react';
 
 export default function QuickMatchForm () {
+
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        const form = e.target as HTMLFormElement;
+        const hostTeam = form.hostTeam.value;
+        const visitorTeam = form.visitorTeam.value;
+        const toss = form.toss.value;
+        const opted = form.opted.value;
+        const overs = form.overs.value;
+
+        console.log(hostTeam, visitorTeam, toss, opted, overs);
+    }
   return (
     <div className="min-h-screen bg-green-500 flex items-center justify-center p-4">
       <div className="bg-white shadow-lg rounded-lg p-6 w-full max-w-md">
         <h1 className="text-2xl font-bold text-green-700 mb-4">Cricket Scorer</h1>
-        <form>
+        <form onSubmit={handleSubmit}>
           {/* Team Names */}
           <div className="mb-4">
             <label htmlFor="host-team" className="block text-gray-700 font-medium mb-1">
@@ -13,7 +26,7 @@ export default function QuickMatchForm () {
             </label>
             <input
               id="host-team"
-              name='host-team'
+              name='hostTeam'
               type="text"
               placeholder="Enter host team name"
               className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
@@ -26,7 +39,7 @@ export default function QuickMatchForm () {
             </label>
             <input
               id="visitor-team"
-              name='visitor-team'
+              name='visitorTeam'
               type="text"
               placeholder="Enter visitor team name"
               className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
