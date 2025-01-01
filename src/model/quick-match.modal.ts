@@ -32,3 +32,5 @@ const QuickMatchSchema = new Schema<QuickMatch>({
 })
 
 const QuickMatchModel = mongoose.models.QuickMatch || mongoose.model("QuickMatch", QuickMatchSchema)
+
+export default QuickMatchModel;
