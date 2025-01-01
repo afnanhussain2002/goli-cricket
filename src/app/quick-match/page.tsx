@@ -1,8 +1,9 @@
+import QuickMatchForm from '@/components/QuickMatchForm'
 import React from 'react'
 
 const QuickMatch = () => {
   return (
-    <div>QuickMatch</div>
+    <div><QuickMatchForm/></div>
   )
 }
 
