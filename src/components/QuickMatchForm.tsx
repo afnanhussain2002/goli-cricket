@@ -35,11 +35,11 @@ export default function QuickMatchForm () {
           <div className="mb-4">
             <p className="text-gray-700 font-medium">Toss won by?</p>
             <div className="flex items-center space-x-4">
-              <label className="flex items-center">
+              <label className="flex items-center text-black">
                 <input type="radio" name="toss" value="host" className="mr-2" />
                 Host Team
               </label>
-              <label className="flex items-center">
+              <label className="flex items-center text-black">
                 <input type="radio" name="toss" value="visitor" className="mr-2" />
                 Visitor Team
               </label>
@@ -50,11 +50,11 @@ export default function QuickMatchForm () {
           <div className="mb-4">
             <p className="text-gray-700 font-medium">Opted to?</p>
             <div className="flex items-center space-x-4">
-              <label className="flex items-center">
+              <label className="flex items-center text-black">
                 <input type="radio" name="opted" value="bat" className="mr-2" />
                 Bat
               </label>
-              <label className="flex items-center">
+              <label className="flex items-center text-black">
                 <input type="radio" name="opted" value="bowl" className="mr-2" />
                 Bowl
               </label>
