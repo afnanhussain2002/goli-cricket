@@ -1,9 +1,11 @@
 "use client";
+import axios from 'axios';
 import React from 'react';
+import toast from 'react-hot-toast';
 
 export default function QuickMatchForm () {
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         const form = e.target as HTMLFormElement;
         const hostTeam = form.hostTeam.value;
@@ -13,6 +15,26 @@ export default function QuickMatchForm () {
         const overs = form.overs.value;
 
         console.log(hostTeam, visitorTeam, toss, opted, overs);
+
+        const newQuickMatch = {
+            hostTeam,
+            visitorTeam,
+            toss,
+            opted,
+            overs,
+        };
+
+        try {
+          const response = await axios
+            .post("/api/quick-match", newQuickMatch)
+            .then((response) => response.data)
+            .catch((error) => console.log(error));
+    
+          console.log(response);
+        } catch (error) {
+          console.log(error);
+          toast.error("Error creating match");
+        }
     }
   return (
     <div className="min-h-screen bg-green-500 flex items-center justify-center p-4">
