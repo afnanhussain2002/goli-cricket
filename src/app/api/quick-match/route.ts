@@ -5,6 +5,13 @@ export async function POST(request: Request) {
   await dbConnect();
   try {
     const { hostTeam, visitorTeam, toss, opted, overs } = await request.json();
+
+    if (!hostTeam || !visitorTeam || !toss || !opted || !overs) {
+      return Response.json(
+        { error: "Missing hostTeam, visitorTeam, toss, opted or overs" },
+        { status: 400 }
+      );
+    }
     console.log("data=====", hostTeam, visitorTeam, toss, opted, overs);
     const newQuickMatch = new QuickMatchModel({
       hostTeam,
