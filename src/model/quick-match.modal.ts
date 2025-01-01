@@ -1,4 +1,4 @@
-import { Schema } from "mongoose";
+import mongoose, { Schema } from "mongoose";
 
 export interface QuickMatch {
     hostTeam:string;
@@ -30,3 +30,5 @@ const QuickMatchSchema = new Schema<QuickMatch>({
         required:true,
     }
 })
+
+const QuickMatchModel = mongoose.models.QuickMatch || mongoose.model("QuickMatch", QuickMatchSchema)
