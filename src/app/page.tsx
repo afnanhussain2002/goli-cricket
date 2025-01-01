@@ -25,9 +25,14 @@ function Home() {
             <p className="py-6">
             Track Every Run, Count Every Over, Own Every Match!
             </p>
+            <div className='space-x-2'>
             <Link href={'/match-setup'}>
             <button className="btn btn-primary">Get Started</button>
             </Link>
+            <Link href={'/quick-match'}>
+            <button className="btn btn-primary">Quick Start</button>
+            </Link>
+            </div>
           </div>
         </div>
       </div>
