@@ -13,6 +13,7 @@ export default function QuickMatchForm () {
             </label>
             <input
               id="host-team"
+              name='host-team'
               type="text"
               placeholder="Enter host team name"
               className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
@@ -25,6 +26,7 @@ export default function QuickMatchForm () {
             </label>
             <input
               id="visitor-team"
+              name='visitor-team'
               type="text"
               placeholder="Enter visitor team name"
               className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
@@ -68,6 +70,7 @@ export default function QuickMatchForm () {
             </label>
             <input
               id="overs"
+              name='overs'
               type="number"
               placeholder="Enter number of overs"
               className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
